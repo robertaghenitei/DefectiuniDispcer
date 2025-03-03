@@ -1,0 +1,156 @@
+id,name,region_id
+1,"12 B (50ap) Stefan Luchian sc B",1
+2,"12 C (50ap) Stefan Luchian sc C",1
+3,"2 D (camin) Stefan Luchian 4",1
+4,"20 ap Stefan Luchian 2",1
+5,"30 ap Stefan Luchian 6",1
+6,"10 A (72 ap)  Stefan Luchian 10 sc A",1
+7,"10 C (72 ap)  Stefan Luchian 10 sc C",1
+8,"10 D (72 ap)  Stefan Luchian 10 sc D",1
+9,"10 E (72 ap)  Stefan Luchian 10 sc E",1
+10,"D 3 , Al. Prieteniei 3, C",5
+11,"D 4 , Al. Prieteniei 3, B",5
+12,"D 5 , Al. Prieteniei 3, A",5
+13,"V 10  , Varnav 5, C",5
+14,"V 10  , Varnav 5, B",5
+15,"V 10  , Varnav 5, A",5
+16,"V 4 , Prieteniei 9, A",5
+17,"V 4 , Prieteniei 9, B",5
+18,"V 4 , Prieteniei 9, C",5
+19,"V 4D   Al. Prieteniei 1, A",5
+20,"V 4E , Al. Prieteniei 1, B",5
+21,"V 6 , Varnav 4, C",5
+22,"V 6 , Varnav 4, D",5
+23,"V 8  , Varnav 1, B",5
+24,"V 8 , Varnav 1, A",5
+25,"V 8 , Varnav 1, C",5
+26,"F3, Varnav 14, A",5
+27,"F1, Varnav 20, A",5
+28,"F1, Varnav 20, B",5
+29,"D2, Varnav 3, A",5
+30,"D1, Varnav 3, B",5
+31,"F7, Varnav 6, A",5
+32,"F7, Varnav 6, B",5
+33,"F7, Varnav 6, D",5
+34,"F7, Varnav 6, E",5
+35,"F5, Varnav 8, A",5
+36,"F5, Varnav 8, B",5
+37,"F5, Varnav 8, C",5
+38,"P 11- A, Primaverii 5sc.A",5
+39,"P 11-B, Primaverii 5sc.B",5
+40,"P 13, Al. Prieteniei 2sc.H",5
+41,"P 13, Al. Prieteniei 2sc.G",5
+42,"P 13, Al. Prieteniei 2sc.F",5
+43,"P 13, Al. Prieteniei 2sc.E",5
+44,"P 13, Al. Prieteniei 2sc.D",5
+45,"P 13, Al. Prieteniei 2sc.C",5
+46,"P 13, Al. Prieteniei 2sc.A",5
+47,"V 1, Prieteniei 10sc.B",5
+48,"V 1, Prieteniei 10sc.A",5
+49,"V 2, Prieteniei 11sc.A",5
+50,"V 2, Prieteniei 11sc.B",5
+51,"B 3, Al. Noua 8",6
+52,"I 10, Al. Viilor 6, B",6
+53,"I 11, Al. Viilor 6, C",6
+54,"I 12, Al. Viilor 6, D",6
+55,"I 24, Al. Noua 9",6
+56,"I 3, Varnav 13",6
+57,"I 4, O. Onicescu 23",6
+58,"I 6, Al. Viilor 2",6
+59,"I 9, Al. Viilor 6, A",6
+60,"K 1, Al. Viilor 4, B",6
+61,"K 2, Al. Viilor 4, A",6
+62,"P 12, Al. Viilor 3",6
+63,"S 4, Al. Viilor 1, A",6
+64,"S 5, Al. Viilor 1 B",6
+65,"C2, Varnav 11",6
+66,"R14, Al. Primaverii 3, A",6
+67,"R15, Al. Primaverii 3, B",6
+68,"R16, Al. Primaverii 3, C",6
+69,"P13, Al. Primaverii 4",6
+70,"C1, Varnav 9",6
+71,"B 4, Al. Noua 6",6
+72,"G 8, Al. Noua 2, C",6
+73,"G 9, Al. Noua 2, D",6
+74,"I 12, Al. Pinului 3(distributie pe orizontala)",6
+75,"I 13, Al. Pinului 1",6
+76,"I 18, Al. Pinului 7, E",6
+77,"I 19, Al. Pinului 2,B",6
+78,"I 20, B-dul M Eminescu 20, A",6
+79,"I 21, B-dul M Eminescu 20, B",6
+80,"I 22, Al. Noua 5, A",6
+81,"J 6, B-dul M. Eminescu 20, C",6
+82,"J 7, Al. Pinului 2, A",6
+83,"M 17, Al. Pinului 7, D",6
+84,"R 14, Al. Pinului 7, A",6
+85,"R 15, Al. Pinului 7, B",6
+86,"R 16, Al. Pinului 7, C",6
+87,"H 1, Prieteniei 5",6
+88,"L 1-, Prieteniei 1, B",6
+89,"L 1-, Prieteniei 1, C",6
+90,"L 2- , Prieteniei 3, A",6
+91,"L 2- , Prieteniei 3, B",6
+92,"TURN 1, O. Onicescu nr.33",6
+93,"TURN 2, O. Onicescu nr.27",6
+94,"1, Crizantemelor nr.1",2
+95,"14, Al. Rapsodiei nr.14",2
+96,"21C, St. Luchian nr.21 sc.C",2
+97,"K39, Crizantemelor nr.3",2
+98,"32, St. Luchian nr.32",2
+99,"34, St. Luchian nr.34",2
+100,"S2, Al.Rapsodiei nr.4, A",2
+101," 46C, St. Luchian nr.46,sc. C",2
+102,"F5, Crizantemelor nr.5",2
+103,"21A, St. Luchian nr.21 sc.A",2
+104,"D7, Crizantemelor nr.4, A",2
+105," 46A, St. Luchian nr.46,sc. A",2
+106,"D7, Crizantemelor nr.4, B",2
+107,"21B, St. Luchian nr.21 sc.B",2
+108,"Gz7, Rapsodiei nr.12, A",2
+109,"D.2, Crizantemelor nr.2, B",2
+110,"Turn 4, Rapsodiei nr.2",2
+111,"Turn 12, Unirii nr.8",2
+112,"1, PICTORULUI nr.1",3
+113,"2, PICTORULUI nr.2",3
+114,"3, PICTORULUI nr.3",3
+115,"4, PICTORULUI nr.4",3
+116,"48, O. Onicescu",3
+117,"5, PICTORULUI NR.5",3
+118,"sc. A-nr.52, O. Onicescu nr.52",3
+119,"sc.A -nr.50, O. Onicescu",3
+120,"sc.B, O. Onicescu nr.46",3
+121,"sc.B-nr.50, O. Onicescu",3
+122,"sc.B-nr.52, O. Onicescu nr.52",3
+123,"sc.B-nr.53, B-dul. M.Eminescu 53",3
+124,"G22, St. Luchian nr.20, B",4
+125,"G22, St. Luchian nr.20, A",4
+126,"(D18), St. Luchian nr.28, A",4
+127,"(I18), St. Luchian nr.28, B",4
+128,"M14, St. Luchian nr.30, A",4
+129,"M14, St. Luchian nr.30, B",4
+130,"bl. M4, St. Luchian nr.14",4
+131,"Stefan Luchian nr.5, A ( sc.B debr,)",4
+132,"bl.I 6, O. Bancila nr.17",4
+133,"bl.R 7, O. Bancila nr.13",4
+134,"sc A (R9), O. Bancila nr.5",4
+135,"sc.A(I 5), O. Onicescu nr.45",4
+136,"sc.A(R 8), O. Bancila nr.9",4
+137,"sc.B(I 5), O. Onicescu nr.45",4
+138,"sc.B(R 8), O. Bancila nr.9",4
+139,"sc.B(R9), O. Bancila nr.5",4
+140,"sc.C (R9), O. Bancila nr.5",4
+141,"sc.C(I 5), O. Onicescu nr.45",4
+142,"sc.C(R10), O. Bancila nr.1",4
+143,"sc.B(R10), O. Bancila nr.1( + Donisan)",4
+144,"sc.A(R10), O. Bancila nr.1",4
+145,"11, Armoniei  nr.11",4
+146,"13A, Armoniei  nr.13",4
+147,"13B, Armoniei  nr.13",4
+148,"21A, Armoniei nr.21",4
+149,"2A, Arcului -nr.2",4
+150,"2B, Arcului -nr.2",4
+151,"4A, Al. Arcului nr.4",4
+152,"4B, Arcului-nr.4",4
+153,"6*, Al. Arcului nr.6",4
+154,"7A, Al. Arcului nr.7",4
+155,"7B, ARCULUI -nr.7",4

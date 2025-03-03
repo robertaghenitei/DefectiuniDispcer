@@ -1,0 +1,242 @@
+div.blueTable {
+  border: 1px solid #1c6ea4;
+  background-color: #eeeeee;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.divTable.blueTable .divTableCell,
+.divTable.blueTable .divTableHead {
+  border: 1px solid #aaaaaa;
+  padding: 3px 2px;
+}
+.divTable.blueTable .divTableBody .divTableCell {
+  font-size: 13px;
+}
+.divTable.blueTable .divTableRow:nth-child(even) {
+  background: #d0e4f5;
+}
+.divTable.blueTable .divTableHeading {
+  background: #1c6ea4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #5592bb 0%,
+    #327cad 66%,
+    #1c6ea4 100%
+  );
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1c6ea4 100%);
+  border-bottom: 2px solid #444444;
+}
+.divTable.blueTable .divTableHeading .divTableHead {
+  font-size: 15px;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  border-left: 2px solid #d0e4f5;
+}
+.divTable.blueTable .divTableHeading .divTableHead:first-child {
+  border-left: none;
+}
+
+.blueTable .tableFootStyle {
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background: #d0e4f5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #d0e4f5 100%);
+  background: -webkit-linear-gradient(
+    top,
+    #dcebf7 0%,
+    #d4e6f6 66%,
+    #d0e4f5 100%
+  );
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #d0e4f5 100%);
+  border-top: 2px solid #444444;
+}
+.blueTable .tableFootStyle {
+  font-size: 14px;
+}
+.blueTable .tableFootStyle .links {
+  text-align: ;
+}
+.blueTable .tableFootStyle .links a {
+  display: inline-block;
+  background: #1c6ea4;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+.blueTable.outerTableFooter {
+  border-top: none;
+}
+.blueTable.outerTableFooter .tableFootStyle {
+  padding: 3px 5px;
+}
+/* DivTable.com */
+.divTable {
+  display: table;
+}
+.divTableRow {
+  display: table-row;
+}
+.divTableHeading {
+  display: table-header-group;
+}
+.divTableCell,
+.divTableHead {
+  display: table-cell;
+}
+
+.divTableFoot {
+  display: table-footer-group;
+}
+.divTableBody {
+  display: table-row-group;
+}
+
+.buton-observatie {
+}
+
+.
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+
+/* Style the collapsible content. Note: hidden by default */
+
+.form-observatie {
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  
+}
+
+.form-observatie form {
+  padding: 5px ;
+  margin: 5px;
+}
+
+.form-observatie form textarea {
+  width: auto;
+  min-height: 40px;
+}
+
+.celula-observatii {
+  width: 64ch;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Base State: Collapsed */
+/* Base State: Collapsed */
+.content-parent {
+  width: 100%; /* Ensures the width stays the same */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px); /* Slight upward offset before expansion */
+  transition: max-height 1s ease-in-out, 
+              opacity 1.5s ease-in-out,  
+              transform 1s ease-in-out;  
+}
+
+.content-show {
+  max-height: 1000px; /* Adjust based on expected content size */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to normal position */
+}
+
+
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.switch input {
+  display: none;
+}
+
+.switch label {
+  cursor: pointer;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.switch .slider {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: hsl(234, 65%, 44%);
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.switch input:checked + label .slider {
+  transform: translateX(26px);
+  background-color: hsl(0, 78%, 53%);
+}
+
+.switch .label-text {
+  position: relative;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.switch .label-text:nth-child(1) {
+  position: absolute;
+  left: 10px;
+}
+
+.switch .label-text:nth-child(2) {
+  position: absolute;
+  right: 10px;
+}
+
+
+
+
+/* Basic Collapsible Button */
+.collapsible {
+  font-weight: bold;
+  background-color: inherit;
+  color: hsl(241, 66%, 53%);
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+/* Hover and Active State */
+.active,
+.collapsible:hover {
+  background-color: #ccc;
+}
+
+/* Collapsible Content */
+
+/* Optional: Style for collapsible content */
+.content-parent div {
+  padding: 2px;
+}
+
+/* Add smooth animation when the button is clicked */
+.collapsible:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}

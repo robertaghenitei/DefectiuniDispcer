@@ -1,0 +1,25 @@
+.observatie {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #222;
+    width: 64ch;
+    text-align: center;
+    border: 1px solid black;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light gray for contrast */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 2px auto; /* Centering the box */
+    
+    word-wrap: break-word;  /* Prevents words from overflowing */
+    overflow-wrap: break-word;  /* Ensures long words break inside the container */
+    white-space: normal;  /* Allow line breaks for long text */
+}
+
+/* Optional: Handling text overflow (if you want to truncate long content) */
+.observatie.single-line {
+    white-space: nowrap;  /* Prevent line breaks */
+    overflow: hidden;  /* Hide overflowing text */
+    text-overflow: ellipsis;  /* Add an ellipsis (...) at the end of truncated text */
+}
