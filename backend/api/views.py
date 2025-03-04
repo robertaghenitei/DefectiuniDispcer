@@ -96,7 +96,7 @@ class AddressListView(APIView):
 
 
 def vremea(request):
-    appid="6620adbdca1f561b30ab5e6c8c754a78"
+    appid=""
     URL = "http://api.openweathermap.org/data/2.5/weather"
     PARAMS = {"q": "Botosani", "appid": appid, "units": "metric"}
     try:
