@@ -335,3 +335,45 @@ form textarea {
     font-size: 16px;
   }
 }
+
+
+/* Style for the sector links */
+.sector-links {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sector-links a {
+  text-decoration: none;
+  color: #007bff; /* Blue color */
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.sector-links a:hover {
+  background-color: #007bff;
+  color: #fff;
+  transform: scale(1.1); /* Slightly enlarge the link when hovered */
+}
+
+.sector-links a.active {
+  background-color: #0056b3; /* Darker blue for active link */
+  color: #fff;
+}
+
+.sector-links a:not(:last-child) {
+  margin-right: 15px; /* Space out the links */
+}
+
+/* Optional: Add some padding and a light border for the container */
+.sector-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

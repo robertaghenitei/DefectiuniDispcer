@@ -42,7 +42,13 @@ class SesizareListCreate(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Sesizare.objects.all().order_by("data_emiterii").reverse()
+        sector = self.request.query_params.get("sector", None)
+        queryset = Sesizare.objects.all().order_by("-data_emiterii")  # Reverse order by date
+        
+        if sector:
+            queryset = queryset.filter(sector=sector)  # Filter by sector
+        
+        return queryset
 
     def perform_create(self, serializer):
         if serializer.is_valid():
@@ -96,7 +102,7 @@ class AddressListView(APIView):
 
 
 def vremea(request):
-    appid=""
+    appid="6620adbdca1f561b30ab5e6c8c754a78"
     URL = "http://api.openweathermap.org/data/2.5/weather"
     PARAMS = {"q": "Botosani", "appid": appid, "units": "metric"}
     try:

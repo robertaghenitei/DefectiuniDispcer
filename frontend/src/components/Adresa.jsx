@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Select from "react-select";
 import api from "../api";
 
-function Address({ setAdresa, setPunct_termic }) {
+function Adresa({ setAdresa, setPunct_termic, adresa }) {
   const [addresses, setAddresses] = useState([]); // Address suggestions
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
@@ -33,6 +33,14 @@ function Address({ setAdresa, setPunct_termic }) {
     return () => clearTimeout(handler);
   }, [searchQuery, fetchAddresses]);
 
+  // Reset select and address state when adresa is cleared
+  useEffect(() => {
+    if (!adresa) {
+      setSelectedAddress(null); // Reset address selection
+      setSelectedRegion(null);   // Reset region selection
+    }
+  }, [adresa]); // Re-run when adresa state is updated
+
   return (
     <div className="flex flex-col gap-4 w-64">
       <label htmlFor="adresa">Adresa</label>
@@ -48,9 +56,10 @@ function Address({ setAdresa, setPunct_termic }) {
         onChange={(selected) => {
           setSelectedAddress(selected);
           setSelectedRegion(selected?.region || null);
-          setAdresa(selected?.label || ""); 
-          setPunct_termic(selected?.region?.name || ""); 
+          setAdresa(selected?.label || ""); // Pass selected address to parent
+          setPunct_termic(selected?.region?.name || ""); // Set punct_termic
         }}
+        value={selectedAddress || null} // Ensures the Select component is controlled and resets on clear
         isClearable
       />
 
@@ -65,4 +74,4 @@ function Address({ setAdresa, setPunct_termic }) {
   );
 }
 
-export default Address;
+export default Adresa;

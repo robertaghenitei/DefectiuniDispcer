@@ -1,14 +1,18 @@
-import React, { useState, useEffect, useCallback  } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../api";
+import { useNavigate, useSearchParams } from "react-router-dom"; // Import necessary hooks
 import "../styles/Home.css";
 import Sesizare from "../components/Sesizare";
 import Weather from "../components/Weather";
 import Adresa from "../components/Adresa";
 
-
 function Home() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams(); // Get query params
+  const displaySector = searchParams.get("displaySector") || "1 Iftime"; // Default to "1 Iftime" if not provided
+
   const [sesizari, setSesizari] = useState([]);
-  const [sector, setSector] = useState("1 Iftime");
+  const [sector, setSector] = useState(displaySector);
   const [emitent, setEmitent] = useState("");
   const [comunicat_la, setComunicat_la] = useState("Maistru");
   const [punct_termic, setPunct_termic] = useState("Armonia");
@@ -18,32 +22,28 @@ function Home() {
   const [distributie_transport, setDistributie_transport] =
     useState("Distributie");
   const [scara_inchisa, setScara_inchisa] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1); // Track current page
-  const [totalPages, setTotalPages] = useState(1); // Track total number of pages
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getSesizari(currentPage);
-  }, [currentPage]);
+  }, [currentPage, displaySector]); // Fetch when sector or page changes
 
   const getSesizari = (page) => {
     setLoading(true);
     api
-      .get(`/api/sesizari/?page=${page}`)
+      .get(`/api/sesizari/?page=${page}&sector=${displaySector}`)
       .then((res) => res.data)
       .then((data) => {
         setSesizari(data.results);
-     //   console.log(data.results);
-        setTotalPages(Math.ceil(data.count / data.results.length));
-      //  console.log(data.next);
+        setTotalPages(data.results.length > 0 ? Math.ceil(data.count / 10) : 1);
       })
       .catch((error) => alert(error))
       .finally(() => {
         setLoading(false);
       });
   };
-
-
 
   const createSesizare = (e) => {
     e.preventDefault();
@@ -62,20 +62,41 @@ function Home() {
       .then((res) => {
         if (res.status === 201) {
           alert("Sesizarea a fost creata!");
+          resetForm(); // Reset the form fields after submission
         } else {
           alert("Sesizarea nu a putut fi creata!");
         }
-        getSesizari(1);
+        getSesizari(1); // Refresh the sesizari list after creating one
       })
       .catch((error) => console.log(error));
   };
 
-  const pagesToDisplay = [];
-  const pageStart = Math.max(1, currentPage - 1); // Show 1 page before and after the current page
-  const pageEnd = Math.min(totalPages, currentPage + 1); // Ensure we don't go beyond the total pages
+  const resetForm = () => {
+    setSector("1 Iftime");
+    setEmitent("");
+    setComunicat_la("Maistru");
+    setPunct_termic("Armonia");
+    setAdresa("");
+    setAcm_inc("INC");
+    setLocalizare("Subsol");
+    setDistributie_transport("Distributie");
+    setScara_inchisa(true);
+  };
 
-  for (let i = pageStart; i <= pageEnd; i++) {
-    pagesToDisplay.push(i);
+  const pagesToDisplay = [];
+  if (totalPages <= 3) {
+    for (let i = 1; i <= totalPages; i++) {
+      pagesToDisplay.push(i);
+    }
+  } else {
+    const pageStart = Math.max(1, currentPage - 1);
+    const pageEnd = Math.min(totalPages, currentPage + 1);
+
+    for (let i = pageStart; i <= pageEnd; i++) {
+      if (i >= 1 && i <= totalPages) {
+        pagesToDisplay.push(i);
+      }
+    }
   }
 
   const handlePageChange = (page) => {
@@ -84,12 +105,45 @@ function Home() {
     }
   };
 
+  const handleSectorChange = (newSector) => {
+    navigate(`?displaySector=${newSector}`);
+    setSector(newSector); // Update sector state
+  };
+
   return (
     <div className="dispecerat">
       <div className="vremea">
         <Weather />
       </div>
       <br />
+      <div className="sector-links-container">
+        <div className="sector-links">
+          <h3>Selectează sectorul:</h3>
+
+          <br></br>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSectorChange("1 Iftime");
+            }}
+            className={sector === "1 Iftime" ? "active" : ""}
+          >
+            Sector 1 Iftime
+          </a>
+          {" | "}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSectorChange("2 Scutaru");
+            }}
+            className={sector === "2 Scutaru" ? "active" : ""}
+          >
+            Sector 2 Scutaru
+          </a>
+        </div>
+      </div>
       <h1>Utilizatorul logat e {localStorage.getItem("user")}</h1>
       <div>
         <h2>Sesizari</h2>
@@ -115,10 +169,7 @@ function Home() {
           </div>
           <div className="divTableBody">
             {sesizari.map((sesizare) => (
-              <Sesizare
-                sesizare={sesizare}
-                key={sesizare.id}
-              />
+              <Sesizare sesizare={sesizare} key={sesizare.id} />
             ))}
           </div>
         </div>
@@ -134,24 +185,20 @@ function Home() {
               >
                 &laquo;
               </a>
-
               {pagesToDisplay.map((page) => (
                 <React.Fragment key={page}>
-                  {currentPage === page && " "}
                   <a
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      handlePageChange(page); // Set the clicked page number
+                      handlePageChange(page);
                     }}
                     className={currentPage === page ? "active" : ""}
                   >
                     {page}
                   </a>
-                  {currentPage === page && " "}
                 </React.Fragment>
               ))}
-
               <a
                 href="#"
                 onClick={(e) => {
@@ -205,7 +252,7 @@ function Home() {
           <option>Sef Sectie</option>
         </select>
         <br />
-       <Adresa setAdresa={setAdresa} setPunct_termic={setPunct_termic}/>
+        <Adresa setAdresa={setAdresa} setPunct_termic={setPunct_termic} />
         <br />
         <label htmlFor="acm_inc">ACM sau INC</label>
         <select
