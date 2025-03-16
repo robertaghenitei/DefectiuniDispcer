@@ -11,7 +11,7 @@ from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.db.models import Q
-
+from rest_framework.exceptions import NotFound
 
 from django.http import JsonResponse
 
@@ -99,6 +99,15 @@ class AddressListView(APIView):
 
 
 
+class SesizariAdresa(generics.ListAPIView):
+    serializer_class = SesizareSerializer
+
+    def get_queryset(self):
+        adresa = self.kwargs['adresa']  # Extrage parametrul din URL
+        queryset = Sesizare.objects.filter(adresa=adresa)
+        if not queryset.exists():
+            raise NotFound(detail="Adresa nu există.")
+        return queryset
 
 
 def vremea(request):

@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
+import SelectAdresa from "./pages/SelectAdresa";
 
 function Logout() {
   localStorage.clear();
@@ -28,6 +29,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/select-adresa" element={<SelectAdresa />} />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<RegisterAndLogout />}></Route>
         <Route path="*" element={<NotFound />}></Route>

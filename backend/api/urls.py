@@ -8,4 +8,5 @@ urlpatterns = [
     path("vremea/", views.vremea, name="vremea"),
     path("regions/", views.RegionListView.as_view(), name="region-list"),
     path("addresses/", views.AddressListView.as_view(), name="address-list"),
+    path("sesizari/<str:adresa>", views.SesizariAdresa.as_view(), name="lista-sesizari-adresa"),
 ]

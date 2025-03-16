@@ -6,9 +6,12 @@ import Sesizare from "../components/Sesizare";
 import Weather from "../components/Weather";
 import Adresa from "../components/Adresa";
 
+import { Link } from "react-router-dom";
+
 function Home() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams(); // Get query params
+  
   const displaySector = searchParams.get("displaySector") || "1 Iftime"; // Default to "1 Iftime" if not provided
 
   const [sesizari, setSesizari] = useState([]);
@@ -116,107 +119,6 @@ function Home() {
         <Weather />
       </div>
       <br />
-      <div className="sector-links-container">
-        <div className="sector-links">
-          <h3>Selectează sectorul:</h3>
-
-          <br></br>
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handleSectorChange("1 Iftime");
-            }}
-            className={sector === "1 Iftime" ? "active" : ""}
-          >
-            Sector 1 Iftime
-          </a>
-          {" | "}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              handleSectorChange("2 Scutaru");
-            }}
-            className={sector === "2 Scutaru" ? "active" : ""}
-          >
-            Sector 2 Scutaru
-          </a>
-        </div>
-      </div>
-      <h1>Utilizatorul logat e {localStorage.getItem("user")}</h1>
-      <div>
-        <h2>Sesizari</h2>
-        <div className="divTable blueTable">
-          <div className="divTableHeading">
-            <div className="divTableRow">
-              <div className="divTableHead">Nr.</div>
-              <div className="divTableHead">Sector</div>
-              <div className="divTableHead">Cine anunta</div>
-              <div className="divTableHead">Data</div>
-              <div className="divTableHead">Dispecer</div>
-              <div className="divTableHead">Comunicat La</div>
-              <div className="divTableHead">Punct Termic</div>
-              <div className="divTableHead">Adresa</div>
-              <div className="divTableHead">Serviciul</div>
-              <div className="divTableHead">Localizare</div>
-              <div className="divTableHead">Dist/Trans</div>
-              <div className="divTableHead">Scara Inchisa?</div>
-              <div className="divTableHead">Observatii</div>
-              <div className="divTableHead">Remediat</div>
-              <div className="divTableHead">Cine a inchis</div>
-            </div>
-          </div>
-          <div className="divTableBody">
-            {sesizari.map((sesizare) => (
-              <Sesizare sesizare={sesizare} key={sesizare.id} />
-            ))}
-          </div>
-        </div>
-        <div className="blueTable outerTableFooter">
-          <div className="tableFootStyle">
-            <div className="links">
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageChange(currentPage - 1);
-                }}
-              >
-                &laquo;
-              </a>
-              {pagesToDisplay.map((page) => (
-                <React.Fragment key={page}>
-                  <a
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handlePageChange(page);
-                    }}
-                    className={currentPage === page ? "active" : ""}
-                  >
-                    {page}
-                  </a>
-                </React.Fragment>
-              ))}
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handlePageChange(currentPage + 1);
-                }}
-              >
-                &raquo;
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-      </div>
       <h2>Adauga o sesizare</h2>
       <form onSubmit={createSesizare}>
         <label htmlFor="sector">Sector</label>
@@ -304,6 +206,118 @@ function Home() {
         <br />
         <input type="submit" value="Submit"></input>
       </form>
+      <br></br>
+      <h1>Utilizatorul logat e {localStorage.getItem("user")}</h1>
+      <br></br>
+
+      <Link to="/select-adresa" className="select-adresa-link">
+        Cauta toate sesizarile de la o adresa
+      </Link>
+      <br></br>
+      <div className="sector-links-container">
+        <div className="sector-links">
+          <h3>Selectează sectorul:</h3>
+
+          <br></br>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSectorChange("1 Iftime");
+            }}
+            className={sector === "1 Iftime" ? "active" : ""}
+          >
+            Sector 1 Iftime
+          </a>
+          {" | "}
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              handleSectorChange("2 Scutaru");
+            }}
+            className={sector === "2 Scutaru" ? "active" : ""}
+          >
+            Sector 2 Scutaru
+          </a>
+        </div>
+      </div>
+      <br></br>
+
+      <div>
+        <h2>Sesizari</h2>
+        <div className="divTable blueTable">
+          <div className="divTableHeading">
+            <div className="divTableRow">
+              <div className="divTableHead">Nr.</div>
+              <div className="divTableHead">Sector</div>
+              <div className="divTableHead">Cine anunta</div>
+              <div className="divTableHead">Data</div>
+              <div className="divTableHead">Dispecer</div>
+              <div className="divTableHead">Comunicat La</div>
+              <div className="divTableHead">Punct Termic</div>
+              <div className="divTableHead">Adresa</div>
+              <div className="divTableHead">Serviciul</div>
+              <div className="divTableHead">Localizare</div>
+              <div className="divTableHead">Dist/Trans</div>
+              <div className="divTableHead">Scara Inchisa?</div>
+              <div className="divTableHead">Observatii</div>
+              <div className="divTableHead">Remediat</div>
+              <div className="divTableHead">Cine a inchis</div>
+            </div>
+          </div>
+          <div className="divTableBody">
+            {sesizari.map((sesizare) => (
+              <Sesizare sesizare={sesizare} key={sesizare.id} />
+            ))}
+          </div>
+        </div>
+        <div className="blueTable outerTableFooter">
+          <div className="tableFootStyle">
+            <div className="links">
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(currentPage - 1);
+                }}
+              >
+                &laquo;
+              </a>
+              {pagesToDisplay.map((page) => (
+                <React.Fragment key={page}>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handlePageChange(page);
+                    }}
+                    className={currentPage === page ? "active" : ""}
+                  >
+                    {page}
+                  </a>
+                </React.Fragment>
+              ))}
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handlePageChange(currentPage + 1);
+                }}
+              >
+                &raquo;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+      </div>
+
+
     </div>
   );
 }
