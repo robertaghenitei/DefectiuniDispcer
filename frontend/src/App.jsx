@@ -29,7 +29,14 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/select-adresa" element={<SelectAdresa />} />
+        <Route 
+        path="/select-adresa" 
+        element={
+          <ProtectedRoute>
+        <SelectAdresa />
+        </ProtectedRoute>
+        } 
+        />
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<RegisterAndLogout />}></Route>
         <Route path="*" element={<NotFound />}></Route>

@@ -50,6 +50,16 @@ class SesizareListCreate(generics.ListCreateAPIView):
         
         return queryset
 
+    def list(self, request, *args, **kwargs):
+        # If ?all=true is in query params, return all results without pagination
+        if request.query_params.get("all") == "true":
+            queryset = self.get_queryset()
+            serializer = self.get_serializer(queryset, many=True)
+            return Response(serializer.data)
+
+        # Otherwise, use default pagination
+        return super().list(request, *args, **kwargs)
+
     def perform_create(self, serializer):
         if serializer.is_valid():
             serializer.save(author=self.request.user)

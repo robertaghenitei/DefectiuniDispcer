@@ -16,10 +16,11 @@ function SelectAdresa() {
   const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
-    api.get("/api/sesizari/")
+    api.get("/api/sesizari/?all=true")
       .then((res) => {
-        const uniqueAdrese = [...new Set(res.data.results.map((s) => s.adresa))];
-        setAdrese(uniqueAdrese);
+        const data = Array.isArray(res.data) ? res.data : res.data.results || [];
+        const uniqueAdrese = data.map((s) => s.adresa);
+        setAdrese([...new Set(uniqueAdrese)]);
       })
       .catch((err) => {
         console.error("Error fetching addresses:", err);
@@ -35,7 +36,7 @@ function SelectAdresa() {
 
   const handleSelect = () => {
     if (selectedAdresa) {
-      api.get(`/api/sesizari/${selectedAdresa.value}`)
+      api.get(`/api/sesizari-adresa/${selectedAdresa.value}`)
       .then((res)=>res.data)
       .then((data)=>{
         setSesizariAdresa(data.results)
