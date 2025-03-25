@@ -123,7 +123,7 @@ class SesizariAdresa(generics.ListAPIView):
 def vremea(request):
     appid="6620adbdca1f561b30ab5e6c8c754a78"
     URL = "http://api.openweathermap.org/data/2.5/weather"
-    PARAMS = {"q": "Botosani", "appid": appid, "units": "metric"}
+    PARAMS = {"q": "Botosani", "appid": appid, "units": "metric", "lang": "RO"}
     try:
         response = requests.get(url=URL, params=PARAMS)   
         #On successful response, we'll get a status code of 200, so comparing
