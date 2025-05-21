@@ -116,7 +116,7 @@ function Home() {
   return (
     <div className="dispecerat">
       <div className="vremea">
-        <Weather />
+        {/* <Weather /> */}
       </div>
       <br />
       <h2>Adauga o sesizare</h2>
@@ -132,7 +132,7 @@ function Home() {
           <option>2 Scutaru</option>
         </select>
         <br />
-        <label htmlFor="emitent">Emitent</label>
+        <label htmlFor="emitent">Cine sesizeaza</label>
         <input
           type="text"
           id="emitent"
@@ -154,7 +154,7 @@ function Home() {
           <option>Sef Sectie</option>
         </select>
         <br />
-        <Adresa setAdresa={setAdresa} setPunct_termic={setPunct_termic} />
+        <Adresa setAdresa={setAdresa} setPunct_termic={setPunct_termic} adresa={adresa} sector={sector}/>
         <br />
         <label htmlFor="acm_inc">ACM sau INC</label>
         <select

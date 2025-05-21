@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Select from "react-select";
 import api from "../api";
 
-function Adresa({ setAdresa, setPunct_termic, adresa }) {
+function Adresa({ setAdresa, setPunct_termic, adresa, sector }) {
   const [addresses, setAddresses] = useState([]); // Address suggestions
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState(null);
@@ -17,7 +17,8 @@ function Adresa({ setAdresa, setPunct_termic, adresa }) {
     }
 
     setIsLoading(true);
-    api.get(`/api/addresses?search=${query}`)
+
+    api.get(`/api/addresses?search=${query}&sector=${sector}`) // adaugam la cautare si sectorul pentru a alege doar adresele si punctele termice de pe sectorul respectiv
       .then(res => res.data)
       .then(data => setAddresses(data.map(address => ({
         value: address.id,
@@ -26,7 +27,7 @@ function Adresa({ setAdresa, setPunct_termic, adresa }) {
       }))))
       .catch(console.error)
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [sector]);
 
   useEffect(() => {
     const handler = setTimeout(() => fetchAddresses(searchQuery), 300); // Debounce API calls
